@@ -1,8 +1,9 @@
 import { getLibs } from '../../scripts/utils.js';
 
 export default async function init(el) {
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-  const qResp = await fetch('/blog/query-index.json');
+  const { createTag, getConfig } = await import(`${getLibs()}/utils/utils.js`);
+  const { locale } = getConfig();
+  const qResp = await fetch(`${locale.contentRoot}/blog/query-index.json`);
   if (!qResp.ok) return;
   const list = createTag('ul', { class: 'blog-list-container' });
   const qJson = await qResp.json();
