@@ -28,6 +28,6 @@ indices:
     <<: *def
     include:
       - '/de/blog/**'
-    exclude:-
+    exclude:
       - '/de/blog/drafts/**'
     target: /de/blog/query-index.xlsx
